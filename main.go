@@ -58,8 +58,7 @@ func main() {
 		channelPwds <- pw
 		go crackBcrypt()
 	}
-	fmt.Println("\nPW: " + <-channelFin)
-	fmt.Printf("Run Time: %v\n", time.Now().Sub(start))
+	fmt.Println("\nPW: " + <-channelFin +fmt.Sprintf("\nRun Time: %v\n", time.Now().Sub(start)))
 }
 
 func crackBcrypt() {
