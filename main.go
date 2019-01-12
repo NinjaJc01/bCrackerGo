@@ -50,7 +50,7 @@ func main() {
 	fmt.Println(hash)
 	channelPwds = make(chan string, len(possiblePws.Pws))
 	channelFin = make(chan string, 1)
-	channelRes = make(chan bool, len(possiblePws.Pws))
+	//channelRes = make(chan bool, len(possiblePws.Pws))
 	start := time.Now()
 	fmt.Println("Starting")
 	fmt.Print("[")
@@ -66,13 +66,13 @@ func crackBcrypt() {
 	//fmt.Println(len(channelPwds))
 	if len(channelFin) == 0 {
 		val := comparePasswordsBcrypt(hash, []byte(guess))
-		channelRes <- val
+		//channelRes <- val
 		if val {
 			fmt.Print(" ]")
 			channelFin <- guess
 		} else {
 			fmt.Print("█")
-			channelRes <- false
+			//channelRes <- false
 		}
 	}
 }
